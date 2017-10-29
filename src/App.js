@@ -7,20 +7,7 @@ class App extends Component {
     super(props);
 
     this.state = {
-      items: [
-        {
-          name: "bread",
-          price: 3
-        },
-        {
-          name: "cheese",
-          price: 4
-        },
-        {
-          name: "asdf",
-          price: 69
-        }
-      ]
+      items: []
     };
 
     this.addItem = this.addItem.bind(this);
