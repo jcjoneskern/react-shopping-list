@@ -19,17 +19,25 @@ class App extends Component {
         },
         {
           name: "asdf",
-          price: 42
+          price: 69
         }
       ]
     };
+
+    this.updateList = this.updateList.bind(this);
   }
+
+updateList(item) {
+  this.setState(prevState => ({
+    items: prevState.items.concat(item)
+  }));
+}
 
   render() {
     return (
       <div className="App">
         <List items = { this.state.items } />
-        <Form />
+        <Form onItemAddition={ this.updateList } />
       </div>
     );
   }

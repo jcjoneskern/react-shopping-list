@@ -8,7 +8,7 @@ const List = (props) => {
     return (
         <div>
             <ListItem items={props.items} />
-            <p>Total: {total}</p>
+            <p>Total: {total.toFixed(2)}</p>
         </div>
     );
 }
