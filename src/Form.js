@@ -45,13 +45,13 @@ class Form extends Component {
             <form onSubmit={ this.handleSubmit }>
                 <input 
                     type="text" 
-                    placeholder="name"
+                    placeholder="Name"
                     name="name"
                     value={ this.state.name }
                     onChange={ this.handleInputChange } />
                 <input 
                     type="number" 
-                    placeholder="price"
+                    placeholder="Price"
                     name="price"
                     value={ this.state.price }
                     onChange={ this.handleInputChange } />

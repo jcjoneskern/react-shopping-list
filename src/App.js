@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './App.css';
 import List from './List';
 import Form from './Form';
 
@@ -24,20 +23,32 @@ class App extends Component {
       ]
     };
 
-    this.updateList = this.updateList.bind(this);
+    this.addItem = this.addItem.bind(this);
+    this.removeItem = this.removeItem.bind(this);
   }
 
-updateList(item) {
+addItem(item) {
   this.setState(prevState => ({
     items: prevState.items.concat(item)
   }));
 }
 
+removeItem(item, index) {
+  this.setState(prev => {
+    return {
+      items: [
+        ...prev.items.slice(0, index),
+        ...prev.items.slice(index + 1)
+      ]
+    };
+  });
+}
+
   render() {
     return (
       <div className="App">
-        <List items = { this.state.items } />
-        <Form onItemAddition={ this.updateList } />
+        <List onRemove={ this.removeItem } items = { this.state.items } />
+        <Form onItemAddition={ this.addItem } />
       </div>
     );
   }

@@ -1,11 +1,17 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const ListItem = (props) => {
-    const listItems = props.items.map((item, index) => {
-        return <li key={index}><span>-</span> {item.name} {item.price.toFixed(2)}</li>
-    });
+class ListItem extends Component {
+    handleRemoveClick(item, index) {
+        this.props.onRemove(item, index);
+    }
 
-    return <ul>{listItems}</ul>;
+    render() {
+        const listItems = this.props.items.map((item, index) => {
+            return <li key={index}><span className="remove" onClick={this.handleRemoveClick.bind(this, item, index)} >-</span> {item.name} <span className="numbers">${item.price.toFixed(2)}</span></li>
+        });
+        return listItems;
+    }
+
 }
 
 export default ListItem;
